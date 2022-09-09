@@ -1,5 +1,3 @@
-
-
 function getComputerChoice()
 {
     let random = Math.floor(Math.random() * 10);
@@ -39,34 +37,48 @@ function playerRound(playerSelection,computerSelection)
             return "You Loose, Scissors beats Paper"
     else if(playerSelection==='scissors')
         if(computerSelection==='paper')
-            return "You Win, Paper beats Scissors"
+            return "You Win, Scissors beats paper"
         else
-            return "You Loose, Scissors beats Paper"
+            return "You Loose, Rock beats paper "
 
 }
 
 function game()
     {
+        let player=0;
+        let cpu = 0;
         for(let i=1; i<=5; i++)
         {
-            let player=0;
-            let cpu = 0;
+            
+            let playerSelection=playerChoice();
+            const computerSelection=getComputerChoice();
             result=playerRound(playerSelection,computerSelection);
-            if(result=="You Win, Rock beats Scissors" || result=="You Win, Paper wraps Rock" || result=="You Win, Paper beats Scissors")
+            if(result==="You Win, Rock beats Scissors" || result==="You Win, Paper wraps Rock" || result=="You Win, Paper beats Scissors")
             {
+                console.log(`You selected ${playerSelection}`);
                 player++;
             }
-            else if(result===`Both players selected ${playerSelection}. It's a tie!`)
+            else if(result==="You Loose, Paper wraps Rock" || result==="You Loose, Scissors beats Paper" || result==="You Loose, Rock beats paper ")
             {
-                player++;
+                console.log(`You selected ${playerSelection}`);
                 cpu++;
             }
             else
+            {
+                console.log(`You selected ${playerSelection}, It's a tie`);
                 cpu++;
+                player++;
+            }
             console.log(`Scores: Player ${player}, CPU ${cpu}`);
         }
+        if(player>cpu)
+            console.log("Congratulations! You win!");
+        else if(cpu>player)
+            console.log("Sorry! You lost");
+        else
+            console.log("its a tie!");
     }
-const playerSelection='Rock';
-const computerSelection=getComputerChoice();
-console.log(playerRound(playerSelection,computerSelection));
+
+
+//console.log(playerRound(playerSelection,computerSelection));
 game();
