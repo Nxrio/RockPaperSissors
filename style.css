@@ -1,0 +1,39 @@
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+}
+.icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+#displayResult{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#displayScore{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+}
+
+#displayMessage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#restart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
